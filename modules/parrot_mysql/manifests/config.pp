@@ -12,8 +12,8 @@ class parrot_mysql::config {
 
   $table_cache = 1000
 
-  $mysql_query_cache_limit = '1M'
+  $mysql_query_cache_limit = '8M'
 
-  $mysql_query_cache_size = '16M'
+  $mysql_query_cache_size = '32M'
 
 }

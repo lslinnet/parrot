@@ -101,11 +101,13 @@ class http_stack::apache(
     }
 
     # Add this virtual host to the hosts file
-    host { $name:
-      ip => '127.0.0.1',
-      comment => 'Added automatically by Parrot',
-      ensure => 'present',
-    }
+    # Disabled due to "Error on vagrant up - Parameter name failed: Invalid host name"
+    # See more at https://github.com/computerminds/parrot/issues/38
+    #host { $name:
+    #  ip => '127.0.0.1',
+    #  comment => 'Added automatically by Parrot',
+    #  ensure => 'present',
+    #}
 
     # Add an SSL cert just for this host.
     exec { "ssl-cert-$name":
