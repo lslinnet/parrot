@@ -13,6 +13,7 @@ class parrot_php {
    'php5-xmlrpc',
    'php5-xdebug',
    'php5-memcache',
+   'php5-memcached',
   ]
 
   #Install PHP
