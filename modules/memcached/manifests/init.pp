@@ -11,7 +11,7 @@
 #
 class memcached (
   $port      = '11211',
-  $user      = 'vagrant',
+  $user      = 'nobody',
   $maxconn   = '1024',
   $cachesize = '64',
   $options   = ''
