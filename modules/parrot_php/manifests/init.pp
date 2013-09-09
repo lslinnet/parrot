@@ -12,6 +12,7 @@ class parrot_php {
    'php5-sqlite',
    'php5-xmlrpc',
    'php5-xdebug',
+   'php5-memcache',
   ]
 
   #Install PHP

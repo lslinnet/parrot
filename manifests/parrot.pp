@@ -5,6 +5,7 @@ node default {
   class { solr_server:  }
   class { parrot_mysql:  }
   class { parrot_php:  }
+  class { memcached: }
   class { oh_my_zsh:  }
   class { sudoers: }
   class { 'http_stack::without_varnish': }
