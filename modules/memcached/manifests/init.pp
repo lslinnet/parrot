@@ -13,7 +13,7 @@ class memcached (
   $port      = '11211',
   $user      = 'nobody',
   $maxconn   = '1024',
-  $cachesize = '64',
+  $cachesize = '512',
   $options   = ''
 ) {
 
