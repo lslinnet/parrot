@@ -4,6 +4,13 @@ then
   ruby -e "$(curl -fsSL https://raw.github.com/mxcl/homebrew/go)" 
 fi
 
+# You might get asked to do this if you haven't so for now
+# we might as well do it.
+sudo xcodebuild -license
+
+# Updating and everything is just better!
+brew update
+
 # Install native apps
 brew tap phinze/homebrew-cask
 brew install brew-cask
