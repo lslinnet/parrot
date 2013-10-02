@@ -24,6 +24,20 @@ Requirements
 Installation
 ------------
 
+### Automatic
+
+A quick script to get you started off with flying speeds!
+With curl:
+
+	curl -L https://github.com/lslinnet/parrot/raw/master/quick-start.sh | sh
+
+Or with wget:
+
+    wget --no-check-certificate https://github.com/lslinnet/parrot/raw/master/quick-start.sh -O - | sh
+
+### Manual
+
+More will be added here when time presents it self!
 You will need to clone this repo to your host machine, and then `cd` into the directory and run:
 
     vagrant up
