@@ -13,6 +13,7 @@ define parrot_mysql::database_import {
     refreshonly => true,
     subscribe => Exec["create-db-$name"],
     command => "/usr/bin/mysql -uroot -proot $db_name < /vagrant_databases/$name",
+    timeout => 0,
 
   }
 }
