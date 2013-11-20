@@ -11,6 +11,8 @@ def parse_config(
     'with_gui' => false,
     'ip' => "192.168.50.4",
     'php_version' => '5.3'
+    'cpus' => '2',
+    'boxname' => 'Parrot',
   }
   if File.exists?(config_file)
     overrides = YAML.load_file(config_file)
@@ -68,6 +70,13 @@ Vagrant.configure('2') do |config|
     box.name = "Parrot"
     # Boot with a GUI so you can see the screen. (Default is headless)
     box.gui = custom_config['with_gui']
+
+    # Addiotional customizations can be done as noted on http://www.virtualbox.org/manual/ch08.html
+    box.customize ['modifyvm', :id, '--memory', custom_config['memory']]
+    box.customize ['modifyvm', :id, '--cpus', custom_config['cpus']]
+    box.name = custom_config['boxname']
+    # Boot with a GUI so you can see the screen. (Default is headless)
+    # box.gui = true
   end
 
   # Assign this VM to a host-only network IP, allowing you to access it
