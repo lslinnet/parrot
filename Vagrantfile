@@ -10,7 +10,7 @@ def parse_config(
     'memory' => '2048',
     'with_gui' => false,
     'ip' => "192.168.50.4",
-    'php_version' => '5.3'
+    'php_version' => '5.3',
     'cpus' => '2',
     'boxname' => 'Parrot',
   }
