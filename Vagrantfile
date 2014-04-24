@@ -67,7 +67,7 @@ Vagrant.configure('2') do |config|
     end
 
     box.customize ['modifyvm', :id, '--memory', custom_config['memory']]
-    box.name = "Parrot"
+    box.name = custom_config['box_name']
     # Boot with a GUI so you can see the screen. (Default is headless)
     box.gui = custom_config['with_gui']
 
