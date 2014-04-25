@@ -18,6 +18,9 @@ node default {
   package { 'vim': }
   package { 'vim-puppet': }
   package { 'curl': }
+  package { 'subversion': }
+  package { 'unzip': }
+  package { 'htop': }
 
   # Ensure ntp is installed.
   class { ntp:
