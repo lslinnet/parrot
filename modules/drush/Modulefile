@@ -1,0 +1,9 @@
+name        'lslinnet-drush'
+version 	'0.0.1'
+summary     'This module installs Drush'
+description 'This module installs Drush'
+license     'MIT'
+author      'Lars Stadel Linnet'
+
+dependency	'willdurand/composer'
+dependency  'maestrodev/wget'

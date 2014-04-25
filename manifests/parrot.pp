@@ -1,5 +1,9 @@
 node default {
 
+  stage { 'final':
+    require => Stage['main'],
+  }
+
   class {apt: }
   class { parrot_repos: }
   class { solr_server:  }
@@ -21,6 +25,14 @@ node default {
     autoupdate => true,
   }
 
-
+  class { 'composer':
+    auto_update => true,
+    user => 'root',
+    command_name => 'composer',
+    target_dir   => '/usr/local/bin'
+  }
+  class { drush: 
+    stage => final,
+  }
 
 }
