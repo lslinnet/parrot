@@ -9,4 +9,9 @@ class drush () {
     command => 'echo \'export PATH="/home/vagrant/.composer/vendor/bin:$PATH"\' >> /home/vagrant/.bashrc',
     unless => 'grep -q \'composer\' /home/vagrant/.bashrc',
   }
+
+  file {"/usr/local/bin/drush":
+    ensure => link,
+    target => '/home/vagrant/.composer/vendor/bin/drush'
+  }
 }
