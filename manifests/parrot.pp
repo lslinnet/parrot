@@ -28,11 +28,16 @@ node default {
     autoupdate => true,
   }
 
+  file { "/home/vagrant/bin":
+    ensure => directory,
+    owner => "vagrant",
+  }
+
   class { 'composer':
     auto_update => true,
-    user => 'root',
+    user => 'vagrant',
     command_name => 'composer',
-    target_dir   => '/usr/local/bin'
+    target_dir   => '/home/vagrant/bin',
   }
   class { drush: 
     stage => final,

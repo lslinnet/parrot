@@ -1,7 +1,8 @@
 class drush () {
   exec {"install-drush":
-    command => "/usr/local/bin/composer global require drush/drush:6.*",
+    command => "/home/vagrant/bin/composer global require drush/drush:6.*",
     creates => "/home/vagrant/.composer/vendor/drush",
+    user => "vagrant",
   }
 
   exec {"add-composer-to-bashrc":
