@@ -13,6 +13,7 @@ def parse_config(
     'php_version' => '5.3',
     'cpus' => '2',
     'boxname' => 'Parrot',
+    'debug' => false,
   }
   if File.exists?(config_file)
     overrides = YAML.load_file(config_file)
@@ -124,6 +125,9 @@ Vagrant.configure('2') do |config|
 
   # And now the meat.
   config.vm.provision :puppet do |puppet|
+    if (custom_config['debug'])
+      puppet.options = "--verbose --debug"
+    end
     puppet.manifests_path = "manifests"
     puppet.manifest_file  = "parrot.pp"
     puppet.module_path = "modules"
@@ -133,4 +137,7 @@ Vagrant.configure('2') do |config|
       "parrot_php_version" => custom_config['php_version']
     }
   end
+  
+  # A quick installation of composer and drush
+  config.vm.provision "shell", path: "scripts/drush.sh"
 end
