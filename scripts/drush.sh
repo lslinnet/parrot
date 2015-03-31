@@ -26,7 +26,7 @@ if [ -e "/home/vagrant/.composer/vendor/bin/drush" ]; then
 else
   git clone -q https://github.com/drush-ops/drush.git /usr/local/src/drush
   if pushd "/usr/local/src/drush" > /dev/null; then
-    git checkout -q 6.4.0  #or whatever version you want.
+    git checkout -q 6.5.0  #or whatever version you want.
     ln -s /usr/local/src/drush/drush /usr/bin/drush
     composer install -q
     drush --version    
