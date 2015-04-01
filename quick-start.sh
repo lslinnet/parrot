@@ -1,7 +1,7 @@
 # First lets get all the minor things in place
 if ! which brew > /dev/null;
 then
-  ruby -e "$(curl -fsSL https://raw.github.com/mxcl/homebrew/go)" 
+  ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"
 fi
 
 # You might get asked to do this if you haven't so for now
