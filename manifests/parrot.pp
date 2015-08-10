@@ -33,13 +33,29 @@ node default {
     owner => "vagrant",
   }
 
-  #class { 'composer':
-  #  auto_update => true,
-  #  user => 'vagrant',
-  #  command_name => 'composer',
-  #  target_dir   => '/home/vagrant/bin',
-  #}
-  #class { drush: 
-  #  stage => final,
-  #}
+  # Setup Elastic Search
+  # openjdk-7-jre-headless is being required by the solr module.
+  # If there is an old left over java6 on the machine remove it.
+  package{ 'openjdk-6-jre-headless':
+    ensure => absent,
+  }
+
+  class { 'elasticsearch':
+    manage_repo  => true,
+    repo_version => '1.5',
+    status => enabled,
+    require => Package['openjdk-7-jre-headless'],
+    config => {
+      'cluster.name' => 'elastic',
+    }
+  }
+  elasticsearch::instance { 'elastic': }
+  elasticsearch::plugin{'lmenezes/elasticsearch-kopf':
+    module_dir => 'kopf',
+    instances  => 'elastic'
+  }
+  elasticsearch::plugin{'lukas-vlcek/bigdesk':
+    module_dir => 'bigdesk',
+    instances  => 'elastic'
+  }
 }

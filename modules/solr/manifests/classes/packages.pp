@@ -7,11 +7,11 @@ class solr::packages {
     ensure => present,
     name => $operatingsystem ? {
       'Centos' => $operatingsystemrelease ? {
-        '6.0' => "java-1.6.0-openjdk.$hardwaremodel",
-         '*' => 'openjdk-6-jre',
+        '6.0' => "java-1.7.0-openjdk.$hardwaremodel",
+         '*' => 'openjdk-7-jre',
       },
-      'Debian' => 'openjdk-6-jre-headless',
-      'Ubuntu' => 'openjdk-6-jre-headless',
+      'Debian' => 'openjdk-7-jre-headless',
+      'Ubuntu' => 'openjdk-7-jre-headless',
     },
   }
 }

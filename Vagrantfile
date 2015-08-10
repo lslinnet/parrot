@@ -140,4 +140,17 @@ Vagrant.configure('2') do |config|
   
   # A quick installation of composer and drush
   config.vm.provision "shell", path: "scripts/drush.sh"
+
+
+  # Implemented based on https://www.danpurdy.co.uk/web-development/osx-yosemite-port-forwarding-for-vagrant/
+  config.trigger.after [:provision, :up, :reload] do
+      system('echo "
+rdr pass on lo0 inet proto tcp from any to 127.0.0.1 port 80 -> 127.0.0.1 port 8080
+rdr pass on lo0 inet proto tcp from any to 127.0.0.1 port 443 -> 127.0.0.1 port 1443
+" | sudo pfctl -ef - > /dev/null 2>&1; echo "==> Fowarding Ports: 80 -> 8080, 443 -> 1443 & Enabling port-forwarding service (pf)"')
+  end
+
+  config.trigger.after [:halt, :destroy] do
+    system("sudo pfctl -df /etc/pf.conf > /dev/null 2>&1; echo '==> Removing Port Forwarding & Disabling port-forwarding service (pf)'")
+  end
 end
