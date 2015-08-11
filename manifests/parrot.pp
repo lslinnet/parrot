@@ -54,6 +54,10 @@ node default {
     module_dir => 'kopf',
     instances  => 'elastic'
   }
+  elasticsearch::plugin{'elasticsearch/marvel/latest':
+    module_dir => 'marvel',
+    instances => 'elastic'
+  }
   elasticsearch::plugin{'lukas-vlcek/bigdesk':
     module_dir => 'bigdesk',
     instances  => 'elastic'
