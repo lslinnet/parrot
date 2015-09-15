@@ -79,12 +79,14 @@ Receive emails from vagrant
 1. Open your mail client
 2. Add a new account
 3. Set it up like this:
-```
-Email type: IMAP
-Email: admin@local.host
-Incoming mail server: 192.168.50.4
-Username: vagrant
-Password: vagrant
-Outgoing mail server: none
-```
+
+Setting | Value
+------------- | -------------
+Email type | IMAP
+Email | admin@local.host
+Incoming mail server | 192.168.50.4
+Username | vagrant
+Password | vagrant
+Outgoing mail server | none
+
 
