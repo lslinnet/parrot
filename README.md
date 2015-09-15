@@ -71,3 +71,20 @@ Features
   * [Apache 2](https://github.com/computerminds/parrot/wiki/Apache-2)
 * [PHP](https://github.com/computerminds/parrot/wiki/PHP)
 * [XDebug](https://github.com/computerminds/parrot/wiki/PHP-XDebug)
+
+Configuring mails
+-----------------
+Receive emails from vagrant
+
+1. Open your mail client
+2. Add a new account
+3. Set it up like this:
+```
+Email type: IMAP
+Email: admin@local.host
+Incoming mail server: 192.168.50.4
+Username: vagrant
+Password: vagrant
+Outgoing mail server: none
+```
+
